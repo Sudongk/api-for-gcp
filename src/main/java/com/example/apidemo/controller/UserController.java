@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/vi/users")
+@RequestMapping("/api/vi/user")
 public class UserController {
 
     private final UserService userService;
