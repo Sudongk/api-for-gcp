@@ -2,6 +2,9 @@ package com.example.apidemo.service;
 
 import com.example.apidemo.repository.UserRepository;
 import com.example.apidemo.entity.User;
+import com.example.apidemo.request.UserCreateRequest;
+import com.example.apidemo.request.UserUpdateRequest;
+import com.example.apidemo.response.UserResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,26 +19,35 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public List<User> getUsers() {
-        return userRepository.findAll();
+    public List<UserResponse> getUsers() {
+        return userRepository.findAll()
+                .stream()
+                .map(UserResponse::of)
+                .toList();
     }
 
-    public User getUser(Long id) {
-        return userRepository.findById(id)
+    public UserResponse getUser(Long id) {
+        User user = userRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("User Not Found"));
+
+        return UserResponse.of(user);
     }
 
     @Transactional
-    public User createUser(User user) {
+    public User createUser(UserCreateRequest request) {
+        User user = User.builder()
+                .name(request.getName())
+                .description(request.getDescription())
+                .build();
         return userRepository.save(user);
     }
 
     @Transactional
-    public void updateUser(Long id, User user) {
+    public void updateUser(Long id, UserUpdateRequest request) {
         User findUser = userRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("User Not Found"));
 
-        findUser.updateDesc(user.getDescription());
+        findUser.updateDesc(request.getDescription());
     }
 
     @Transactional
