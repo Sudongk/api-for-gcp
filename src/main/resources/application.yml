@@ -1,3 +1,6 @@
+server:
+  port: 8081
+
 spring:
   profiles:
     # The commented out section below is for local development.
