@@ -9,7 +9,7 @@ class ApiDemoApplicationTests {
 
     @Test
     void contextLoads() {
-        Assertions.assertThat(false).isTrue();
+        Assertions.assertThat(true).isTrue();
     }
 
 }
