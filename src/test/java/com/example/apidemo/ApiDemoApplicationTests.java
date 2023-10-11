@@ -10,7 +10,7 @@ class ApiDemoApplicationTests {
     @Test
     void contextLoads() {
         Assertions.assertThat(true).isTrue();
-        Assertions.assertThat(1 + 1).isEqualTo(2);
+        Assertions.assertThat(1 + 2).isEqualTo(3);
     }
 
 }
