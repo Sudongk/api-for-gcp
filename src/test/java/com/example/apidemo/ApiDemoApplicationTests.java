@@ -11,6 +11,7 @@ class ApiDemoApplicationTests {
     void contextLoads() {
         Assertions.assertThat(true).isTrue();
         Assertions.assertThat(1 + 2).isEqualTo(3);
+        Assertions.assertThat(1 + 3).isEqualTo(4);
     }
 
 }
