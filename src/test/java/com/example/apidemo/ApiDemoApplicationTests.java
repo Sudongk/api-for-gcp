@@ -31,4 +31,9 @@ class ApiDemoApplicationTests {
         assertThat(true).isTrue();
     }
 
+    @Test
+    void test4() {
+        assertThat(true).isTrue();
+    }
+
 }
