@@ -41,7 +41,7 @@ jobs:
         with:
           host: ${{secrets.HOST_IP}}
           port: 22
-          # passphrase: aa88sd
+          passphrase: ${{secrets.HOST_PASSPHARSE}}
           username: ${{secrets.HOST_USERNAME}}
           key: ${{secrets.HOST_KEY}}
           
